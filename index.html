@@ -42,7 +42,7 @@
         }
         .doc-subtitle {
             font-size: 13px;
-            color: #6b7280;
+            color: #71717a;
             font-weight: 500;
         }
         .currency-selector {
@@ -93,7 +93,8 @@
         .badge-most-popular {
             background: #111; color: #fff; font-size: 9px; font-weight: 900;
             padding: 5px 12px; text-transform: uppercase; letter-spacing: 0.1em;
-            display: inline-block; margin-bottom: 16px; align-self: flex-start;
+            display: inline-block; position: absolute; top: -15px; left: 50%;
+            transform: translateX(-50%); z-index: 10;
         }
 
         .plan-name { font-size: 15px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; color: #111; }
@@ -112,7 +113,7 @@
         .trial-note { font-size: 12.5px; font-weight: 800; color: #16a34a; margin-top: 20px; }
 
         .features-header {
-            font-size: 10px; font-weight: 900; text-transform: uppercase; color: #9ca3af;
+            font-size: 10px; font-weight: 900; text-transform: uppercase; color: #71717a;
             margin-top: 48px; margin-bottom: 24px; border-top: 1px solid #f3f4f6; padding-top: 24px;
             letter-spacing: 0.05em;
         }
@@ -126,7 +127,7 @@
         .topup-card { border: 2px solid #111; padding: 40px; margin-bottom: 64px; }
         .topup-header {
             font-size: 11px; font-weight: 950; text-transform: uppercase; border-bottom: 1px solid #f3f4f6;
-            padding-bottom: 16px; margin-bottom: 24px; color: #9ca3af; letter-spacing: 0.12em;
+            padding-bottom: 16px; margin-bottom: 24px; color: #71717a; letter-spacing: 0.12em;
         }
         .topup-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed #e5e7eb; }
         .topup-row:last-of-type { border-bottom: none; }
@@ -139,13 +140,13 @@
         /* Comparison Table */
         .comp-table { width: 100%; border-collapse: collapse; border: 2px solid #111; margin-bottom: 16px; }
         .comp-table th { background: #111; color: #fff; padding: 20px 24px; text-align: left; text-transform: uppercase; font-size: 12px; font-weight: 900; letter-spacing: 0.1em; }
-        .comp-table td { padding: 14px 24px; border: 1px solid #f3f4f6; font-size: 12.5px; }
-        .comp-table .cat-row td { background: #fdfdfd; font-weight: 950; font-size: 11px; text-transform: uppercase; color: #9ca3af; letter-spacing: 0.12em; border-top: 1.5px solid #111; padding: 16px 24px; }
+        .comp-table td { padding: 12px 24px; border: 1px solid #f3f4f6; font-size: 12.5px; }
+        .comp-table .cat-row td { background: #fdfdfd; font-weight: 950; font-size: 11px; text-transform: uppercase; color: #71717a; letter-spacing: 0.12em; border-top: 1.5px solid #111; padding: 16px 24px; }
         .comp-table .feat-name { width: 40%; font-weight: 750; color: #111; }
         .comp-table .feat-val { width: 20%; font-weight: 800; color: #000; }
         .comp-note { font-size: 11px; color: #9ca3af; margin-top: 12px; font-weight: 500; }
 
-        /* Differentiators */
+        /* "Why Taxary?" Differentiators */
         .diff-list { margin-bottom: 64px; }
         .diff-item { display: grid; grid-template-columns: 40px 1fr; gap: 0px; margin-bottom: 48px; }
         .diff-num { font-size: 16px; font-weight: 900; color: #d1d5db; margin-top: 5px; }
@@ -188,27 +189,37 @@
             <!-- STARTER -->
             <div class="plan-col">
                 <div class="plan-name">Starter</div>
-                <p class="plan-desc">Essential GST billing & dashboard for solo founders and micro-businesses.</p>
+                <p class="plan-desc">30-day trial for micro-businesses moving beyond manual ledgers.</p>
                 <div class="price-box">
-                    <div class="price-val">Free</div>
-                    <span class="price-meta">per workspace, free forever</span>
+                    <div class="price-val">
+                        <span class="usd-price active-price">$3 /mo</span>
+                        <span class="inr-price">₹249 /mo</span>
+                        <span class="eur-price">&euro;2.80 /mo</span>
+                    </div>
+                    <span class="price-meta">per workspace, billed annually</span>
+                    <span class="price-other">
+                        <span class="usd-price active-price">$4 billed monthly</span>
+                        <span class="inr-price">₹299 billed monthly</span>
+                        <span class="eur-price">&euro;3.50 billed monthly</span>
+                    </span>
+                    <div class="save-tag">SAVE 16% ANNUALLY</div>
                 </div>
+                <div class="trial-note">30-day free trial, no card required</div>
 
-                <div class="features-header">Core Access (Limited)</div>
-                <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">1 user only</div></div>
-                <div class="feature-item"><div class="feat-label">Sales/month</div><div class="feat-detail">10 Invoices</div></div>
-                <div class="feature-item"><div class="feat-label">Parties</div><div class="feat-detail">Up to 5</div></div>
-                <div class="feature-item"><div class="feat-label">Product Catalog</div><div class="feat-detail">10 items</div></div>
-                <div class="feature-item"><div class="feat-label">Stock View</div><div class="feat-detail">Read-only</div></div>
-                <div class="feature-item"><div class="feat-label">GST Billing</div><div class="feat-detail">Standard only</div></div>
-                <div class="feature-item"><div class="feat-label">Dashboard</div><div class="feat-detail">Basic stats</div></div>
+                <div class="features-header">Core Access (Capped)</div>
+                <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">1 user</div></div>
+                <div class="feature-item"><div class="feat-label">Order Lifecycle</div><div class="feat-detail">50 orders/mo</div></div>
+                <div class="feature-item"><div class="feat-label">Invoicing (GST)</div><div class="feat-detail">25 invoices/mo</div></div>
+                <div class="feature-item"><div class="feat-label">Delivery Tracking</div><div class="feat-detail">Standard</div></div>
+                <div class="feature-item"><div class="feat-label">Expense Management</div><div class="feat-detail">Basic tally</div></div>
+                <div class="feature-item"><div class="feat-label">Reports</div><div class="feat-detail">Standard PDF</div></div>
             </div>
 
             <!-- GROWTH -->
-            <div class="badge-most-popular" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); z-index: 10;">Most Popular</div>
-            <div class="plan-col" style="border-left: 2px solid #111;">
+            <div class="plan-col">
+                <div class="badge-most-popular">Most Popular</div>
                 <div class="plan-name">Growth</div>
-                <p class="plan-desc">Professional multi-currency billing and automated ops with active limits.</p>
+                <p class="plan-desc">Full professional operations for growing service units and trading teams.</p>
                 <div class="price-box">
                     <div class="price-val">
                         <span class="usd-price active-price">$5 /mo</span>
@@ -223,17 +234,16 @@
                     </span>
                     <div class="save-tag">SAVE 20% ANNUALLY</div>
                 </div>
-                <div class="trial-note">Free for 30 days, no card required</div>
 
-                <div class="features-header">Enhanced Features (Capped)</div>
+                <div class="features-header">Enhanced Ops (Professional)</div>
                 <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">Up to 3</div></div>
-                <div class="feature-item"><div class="feat-label">Sales/month</div><div class="feat-detail">Unlimited</div></div>
-                <div class="feature-item"><div class="feat-label">Catalog & Parties</div><div class="feat-detail">Unlimited</div></div>
-                <div class="feature-item"><div class="feat-label">Multi-Currency</div><div class="feat-detail">Active support</div></div>
-                <div class="feature-item"><div class="feat-label">Quote &rarr; Inv</div><div class="feat-detail">1-click sync</div></div>
-                <div class="feature-item"><div class="feat-label">Expense Tracking</div><div class="feat-detail">With receipts</div></div>
-                <div class="feature-item"><div class="feat-label">AI Insights</div><div class="feat-detail">Basic trends</div></div>
-                <div class="feature-item"><div class="feat-label">White-Label PDF</div><div class="feat-detail">No watermark</div></div>
+                <div class="feature-item"><div class="feat-label">Order Lifecycle</div><div class="feat-detail">1,000/mo</div></div>
+                <div class="feature-item"><div class="feat-label">Unlimited Invoices</div><div class="feat-detail">No monthly cap</div></div>
+                <div class="feature-item"><div class="feat-label">Delivery Tracking</div><div class="feat-detail">Priority sync</div></div>
+                <div class="feature-item"><div class="feat-label">Quotation Sync</div><div class="feat-detail">Yes (Sales)</div></div>
+                <div class="feature-item"><div class="feat-label">Expense & Receipts</div><div class="feat-detail">Unlimited</div></div>
+                <div class="feature-item"><div class="feat-label">Multi-Currency</div><div class="feat-detail">Growth Tier</div></div>
+                <div class="feature-item"><div class="feat-label">Analytical Reports</div><div class="feat-detail">Advanced BI</div></div>
             </div>
 
             <!-- SCALE -->
@@ -245,16 +255,15 @@
                     <span class="price-meta">Bespoke Enterprise Quote</span>
                 </div>
 
-                <div class="features-header">Full Capabilities (No Limits)</div>
+                <div class="features-header">Unlimited Mastery (Scale)</div>
                 <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">Unlimited</div></div>
-                <div class="feature-item"><div class="feat-label">Full AI Assist</div><div class="feat-detail">Autonomous</div></div>
-                <div class="feature-item"><div class="feat-label">Stock alerts</div><div class="feat-detail">Advanced</div></div>
-                <div class="feature-item"><div class="feat-label">Purchase Invoicing</div><div class="feat-detail">Unlimited</div></div>
-                <div class="feature-item"><div class="feat-label">Returns mgmt</div><div class="feat-detail">Full cycle</div></div>
+                <div class="feature-item"><div class="feat-label">Order Lifecycle</div><div class="feat-detail">Unlimited</div></div>
+                <div class="feature-item"><div class="feat-label">Purchase Mgmt</div><div class="feat-detail">Full cycle</div></div>
+                <div class="feature-item"><div class="feat-label">Stock Mastery</div><div class="feat-detail">Adv + Alerts</div></div>
+                <div class="feature-item"><div class="feat-label">RBAC Controls</div><div class="feat-detail">Granular staff</div></div>
                 <div class="feature-item"><div class="feat-label">Coupon Hub</div><div class="feat-detail">Native engine</div></div>
-                <div class="feature-item"><div class="feat-label">RBAC Control</div><div class="feat-detail">Granular</div></div>
-                <div class="feature-item"><div class="feat-label">Staff Management</div><div class="feat-detail">Dedicated</div></div>
-                <div class="feature-item"><div class="feat-label">Priority Support</div><div class="feat-detail">24/7 Support</div></div>
+                <div class="feature-item"><div class="feat-label">Full AI Assist</div><div class="feat-detail">Autonomous</div></div>
+                <div class="feature-item"><div class="feat-label">Account Manager</div><div class="feat-detail">24/7 Priority</div></div>
             </div>
         </div>
 
@@ -283,94 +292,116 @@
         <table class="comp-table">
             <thead>
                 <tr>
-                    <th>Feature Matrix</th>
+                    <th>Core Business Matrix</th>
                     <th>Starter</th>
                     <th>Growth</th>
                     <th>Scale</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="cat-row"><td colspan="4">Core Operations</td></tr>
+                <tr class="cat-row"><td colspan="4">Workflow Automation</td></tr>
+                <tr><td class="feat-name">Order Management</td><td class="feat-val">50/mo</td><td class="feat-val">1,000/mo</td><td class="feat-val">Unlimited</td></tr>
+                <tr><td class="feat-name">Invoicing (GST-ready)</td><td class="feat-val">25/mo</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
+                <tr><td class="feat-name">Delivery Tracking</td><td class="feat-val">Standard</td><td class="feat-val">Priority Sync</td><td class="feat-val">Multi-branch</td></tr>
+                <tr><td class="feat-name">Pending Orders Tracking</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Customer History</td><td class="feat-val">30 Days</td><td class="feat-val">Full</td><td class="feat-val">Full + Audit</td></tr>
+                
+                <tr class="cat-row"><td colspan="4">Financial Operations</td></tr>
+                <tr><td class="feat-name">Expense Management</td><td class="feat-val">Basic Tally</td><td class="feat-val">Unlimited + Receipts</td><td class="feat-val">Advanced Audit</td></tr>
+                <tr><td class="feat-name">Purchase Management</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Full Ledger</td></tr>
+                <tr><td class="feat-name">Return Handling (Sales/Pur)</td><td class="feat-val">No</td><td class="feat-val">Sales Only</td><td class="feat-val">Full Cycle</td></tr>
+                <tr><td class="feat-name">Multi-currency Invoicing</td><td class="feat-val">No</td><td class="feat-val">Yes ($5/mo)</td><td class="feat-val">Yes</td></tr>
+                
+                <tr class="cat-row"><td colspan="4">Inventory & AI</td></tr>
+                <tr><td class="feat-name">Stock management</td><td class="feat-val">View only</td><td class="feat-val">Write/Edit</td><td class="feat-val">Advanced + alerts</td></tr>
+                <tr><td class="feat-name">Quotation &rarr; Inv Sync</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Coupon Hub</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">AI Autopilot & Insights</td><td class="feat-val">No</td><td class="feat-val">Basic Charts</td><td class="feat-val">Full AI Assist</td></tr>
+
+                <tr class="cat-row"><td colspan="4">Infrastructure</td></tr>
                 <tr><td class="feat-name">Users</td><td class="feat-val">1 user</td><td class="feat-val">Up to 3</td><td class="feat-val">Unlimited</td></tr>
-                <tr><td class="feat-name">Sales/month</td><td class="feat-val">10</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
-                <tr><td class="feat-name">Parties (suppliers + customers)</td><td class="feat-val">5</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
-                <tr><td class="feat-name">Products (catalog)</td><td class="feat-val">10</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
-                <tr><td class="feat-name">Stock management</td><td class="feat-val">View only</td><td class="feat-val">Yes</td><td class="feat-val">Advanced + alerts</td></tr>
-                <tr><td class="feat-name">GST-ready billing</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Quotation &rarr; Invoice conversion</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Multi-currency invoicing</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Expense tracking & receipts</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Sales payment tracking</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Purchase invoicing (GST)</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Sales & purchase returns</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Bulk product/stock import</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Coupon hub</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Credit terms & limits</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Role-based access control</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">AI insights</td><td class="feat-val">No</td><td class="feat-val">Basic</td><td class="feat-val">Advanced</td></tr>
-                <tr><td class="feat-name">Reports & trend charts</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">White-label (no watermark)</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Full Aalee AI Assist</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
-                <tr><td class="feat-name">Staff management module</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Role-Based Access (RBAC)</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Reports & Analytics</td><td class="feat-val">Standard PDF</td><td class="feat-val">Advanced Charts</td><td class="feat-val">Custom BI</td></tr>
             </tbody>
         </table>
-        <div class="comp-note">* What counts as an AI task? Each recorded prompt, analysis, or automated response processed by the Aalee Intelligence engine.</div>
+        <div class="comp-note">* AI tasks are prompt/analysis cycles processed by the Aalee Intelligence engine.</div>
         <div class="comp-note">Need enterprise-grade customization? <b>Contact sales.</b></div>
 
-        <h2 class="section-title">Unique Differentiators vs. Competitors</h2>
+        <h2 class="section-title">Competitor Benchmarking (2026)</h2>
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Starting Price</th>
+                    <th>Multi-Currency Tier</th>
+                    <th>Receipt Upload</th>
+                    <th>Total Cost (3 Users, Ann.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="feat-name">Taxary (Growth)</td><td>₹399/mo</td><td>Included (₹399/mo)</td><td>✅ Yes</td><td class="feat-val">₹4,788</td></tr>
+                <tr><td class="feat-name">Zoho Books</td><td>₹0 (Limited)</td><td>Professional (₹1499/mo)</td><td>✅ Yes</td><td class="feat-val">₹17,988</td></tr>
+                <tr><td class="feat-name">myBillBook</td><td>~₹217/mo</td><td>❌ No</td><td>❌ No</td><td class="feat-val">~₹5,000+</td></tr>
+                <tr><td class="feat-name">Vyapar</td><td>~₹60/mo</td><td>❌ No</td><td>❌ No</td><td class="feat-val">~₹3,500</td></tr>
+                <tr><td class="feat-name">TallyPrime</td><td>₹22,500 (One-time)</td><td>Silver (₹18k+)</td><td>❌ No</td><td class="feat-val">₹22,500+</td></tr>
+            </tbody>
+        </table>
+        <div class="comp-note">Ref: Data verified April 10, 2026. Taxary provides 83% savings over Zoho for professional business workflows.</div>
+
+        <h2 class="section-title">Why Taxary?</h2>
         <div class="diff-list">
             <div class="diff-item">
                 <div class="diff-num">1</div>
                 <div class="diff-content">
-                    <h4>Native Coupon Hub for Promotions</h4>
-                    <div class="diff-row"><b>What it is</b><span>Create and manage discount coupons directly within the invoicing workflow.</span></div>
-                    <div class="diff-row"><b>Why unique</b><span>No competitor in the Indian SME space (Vyapar/myBillBook) offers a native promotion engine. Zoho requires complex custom plugins.</span></div>
-                    <div class="diff-row"><b>Impact</b><span>Retail and digital SMEs can run structured marketing campaigns without external tools.</span></div>
+                    <h4>Risk-Free 30-Day Evaluation</h4>
+                    <div class="diff-row"><b>What it is</b><span>30 days of full operational testing with zero financial commitment.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Unlike competitors who offer limited demos, Taxary Starter is a real-world environment.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Confirm the product-market fit for your specific business before investing.</span></div>
                 </div>
             </div>
             <div class="diff-item">
                 <div class="diff-num">2</div>
                 <div class="diff-content">
-                    <h4>Global-Ready Multi-Currency (Mid-Tier)</h4>
-                    <div class="diff-row"><b>What it is</b><span>Professional multi-currency support (USD, EUR, GBP) included from the Growth plan.</span></div>
-                    <div class="diff-row"><b>Why unique</b><span>Vyapar is strictly INR-only. Zoho Books walls multi-currency behind its high-end Enterprise plans ($9+). We include it at $5.</span></div>
-                    <div class="diff-row"><b>Impact</b><span>Service exporters get enterprise-grade international billing at SME price points.</span></div>
+                    <h4>Native Promotion Hub (Coupons)</h4>
+                    <div class="diff-row"><b>What it is</b><span>Manage and track discount codes directly inside your invoicing funnel.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Exclusive to Taxary in the Indian SME space. Zoho/Vyapar lack native coupon logic.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Deploy professional marketing strategies without manual spreadsheet work.</span></div>
                 </div>
             </div>
             <div class="diff-item">
                 <div class="diff-num">3</div>
                 <div class="diff-content">
-                    <h4>Aalee AI Ecosystem Integration</h4>
-                    <div class="diff-row"><b>What it is</b><span>Taxary connects with Aalee Assist (AI Support) for unified business intelligence.</span></div>
-                    <div class="diff-row"><b>Why unique</b><span>Standalone tools (Zoho/Vyapar) don't connect billing data to automated customer support or cross-product AI agents.</span></div>
-                    <div class="diff-row"><b>Impact</b><span>Autonomous business operations where support and finance intelligence share data.</span></div>
+                    <h4>Full Business Lifecycle Connectivity</h4>
+                    <div class="diff-row"><b>What it is</b><span>Seamless flow from Order &rarr; Delivery &rarr; Invoice &rarr; Returns.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Competitors are often 'isolated' billing apps. Taxary is a complete operations workspace.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Zero data re-entry and complete audit trails across the entire business cycle.</span></div>
                 </div>
             </div>
             <div class="diff-item">
                 <div class="diff-num">4</div>
                 <div class="diff-content">
-                    <h4>Genuine Free Access — No Time Walls</h4>
-                    <div class="diff-row"><b>What it is</b><span>Real access to core invoicing with meaningful limits (10 invoices).</span></div>
-                    <div class="diff-row"><b>Why unique</b><span>Vyapar has no free plan (timed trial only). Taxary Starter is free forever for micro-users with digital-first features.</span></div>
-                    <div class="diff-row"><b>Impact</b><span>Zero acquisition friction. Evaluate the product with real data for as long as needed.</span></div>
+                    <h4>Aalee AI Ecosystem Advantage</h4>
+                    <div class="diff-row"><b>What it is</b><span>Cross-product intelligence shared between Taxary (Billing) and Assist (Support).</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Standalone tools cannot sync customer finance data with automated AI agents.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Dramatically reduced customer support overhead via autonomous autopilot.</span></div>
                 </div>
             </div>
             <div class="diff-item">
                 <div class="diff-num">5</div>
                 <div class="diff-content">
-                    <h4>Role-Based Access at SME Pricing</h4>
-                    <div class="diff-row"><b>What it is</b><span>Granular per-module permission controls for staff members.</span></div>
-                    <div class="diff-row"><b>Why unique</b><span>Vyapar offers very basic user control. Zoho walls granular permissions behind enterprise tiers. Taxary simplifies this for Scale teams ($10).</span></div>
-                    <div class="diff-row"><b>Impact</b><span>Business owners can safely delegate finance and stock ops without sensitive exposure.</span></div>
+                    <h4>Professional Multi-Currency Flexibility</h4>
+                    <div class="diff-row"><b>What it is</b><span>Global billing (USD, EUR, GBP) included in the mid-tier Growth plan.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Zoho demands 8x the cost for multi-currency. Vyapar doesn't support it at all.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Service exporters maintain professional global billing without enterprise overhead.</span></div>
                 </div>
             </div>
             <div class="diff-item">
                 <div class="diff-num">6</div>
                 <div class="diff-content">
-                    <h4>Quotation &rarr; Invoice Integrated Lifecycle</h4>
-                    <div class="diff-row"><b>What it is</b><span>Instant 1-click conversion with tax, line item, and party data synchronization.</span></div>
-                    <div class="diff-row"><b>Why unique</b><span>Most SME tools treat quotations as side-documents. Taxary ensures they are part of a unified, high-speed conversion funnel.</span></div>
-                    <div class="diff-row"><b>Impact</b><span>Dramatic reduction in deal-to-cash friction for sales-led organizations.</span></div>
+                    <h4>Granular Role-Based Operations</h4>
+                    <div class="diff-row"><b>What it is</b><span>Deep per-module permissions for staff, sales, and warehouse teams.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>SME tools often have 'all-or-nothing' access. Taxary brings enterprise security to small teams.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Safely delegate complex business operations without exposing sensitive finance data.</span></div>
                 </div>
             </div>
         </div>
@@ -384,7 +415,6 @@
     <script>
         function setCurrency(cur) {
             document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.remove('active'); // fallback
             document.querySelectorAll('.currency-btn').forEach(b => { if(b.innerText === cur) b.classList.add('active'); });
             document.querySelectorAll('.inr-price, .usd-price, .eur-price').forEach(el => el.classList.remove('active-price'));
             document.querySelectorAll('.' + cur.toLowerCase() + '-price').forEach(el => el.classList.add('active-price'));
