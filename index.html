@@ -3,900 +3,392 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aalee Taxary - Pricing & Differentiators</title>
+    <title>Taxary - Pricing & Differentiators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            background: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            background: #f7f7f8;
             color: #111;
-            font-size: 14px;
-            line-height: 1.65;
-        }
-
-        .page {
-            background: #fff;
-            max-width: 860px;
-            margin: 32px auto;
-            padding: 64px 72px;
-            border: 1px solid #d0d0d0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        @media print {
-            body { background: #fff; }
-            .page { margin: 0; box-shadow: none; border: none; padding: 48px 56px; }
-        }
-
-        .gray { color: #666; }
-
-        /* Section headings */
-        h2 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #111;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-bottom: 1px solid #111;
-            padding-bottom: 6px;
-            margin-bottom: 20px;
-            margin-top: 48px;
-        }
-
-        h2:first-of-type { margin-top: 0; }
-
-        .footer-note {
-            margin-top: 64px;
-            padding-top: 24px;
-            border-top: 2px solid #111;
-            font-size: 12px;
-            color: #666;
+            padding: 50px 0;
             line-height: 1.6;
         }
 
-        .footer-note strong { color: #111; }
-
-        /* Documentation UI */
-        .doc-header {
-            border-bottom: 2px solid #111;
-            padding-bottom: 24px;
-            margin-bottom: 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .doc-title {
-            font-size: 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-        }
-
-        .doc-meta {
-            font-size: 11px;
-            color: #888;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .currency-switcher {
-            margin-bottom: 16px;
-            display: flex;
-            justify-content: flex-end;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Plans grid */
-        .plans {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            border: 1px solid #111;
-            margin-bottom: 40px;
-        }
-
-        .plan {
-            padding: 24px 18px;
-            border-right: 1px solid #111;
+        /* A4 Page Layout */
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 80px 70px;
+            border: 1px solid #e2e2e5;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
             position: relative;
         }
 
-        .plan:last-child { border-right: none; }
-
-        .plan-name {
-            font-size: 18px;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: 4px;
+        /* Header */
+        .doc-header {
+            margin-bottom: 32px;
+            position: relative;
         }
-
-        .plan-tagline {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.4;
-            min-height: 34px;
-        }
-
-        .plan-price {
-            font-size: 30px;
-            font-weight: 700;
-            color: #111;
-            line-height: 1;
-            margin-bottom: 2px;
-        }
-
-        .plan-price span {
-            font-size: 14px;
-            font-weight: 400;
-            color: #555;
-        }
-
-        .plan-billing {
-            font-size: 11px;
-            color: #777;
-            margin-bottom: 4px;
-        }
-
-        .price-was {
-            font-size: 11px;
-            color: #888;
-            text-decoration: line-through;
-            margin-bottom: 4px;
-        }
-
-        .save-note {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #555;
-            border: 1px solid #ccc;
-            padding: 1px 7px;
-            border-radius: 3px;
-            margin-bottom: 14px;
-        }
-
-        .plan-divider {
-            border: none;
-            border-top: 1px solid #ddd;
-            margin-bottom: 14px;
-        }
-
-        .plan-features-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #444;
-            margin-bottom: 12px;
-        }
-
-        .plan ul { list-style: none; }
-
-        .plan ul li {
-            margin-bottom: 10px;
-            font-size: 12.5px;
-            color: #333;
-            display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            line-height: 1.4;
-        }
-
-        .plan ul li::before {
-            content: '✓';
-            font-weight: 700;
-            color: #111;
-            flex-shrink: 0;
-        }
-
-        .plan ul li strong {
-            font-weight: 600;
+        .doc-header h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            letter-spacing: -0.04em;
             color: #111;
         }
-
-        .plan ul li.excluded {
-            color: #aaa;
-            text-decoration: line-through;
-        }
-
-        .plan ul li.excluded::before {
-            content: '✗';
-            color: #ccc;
-        }
-
-        .plan-popular { background: #f9f9f9; }
-
-        .popular-tag {
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            background: #111;
-            color: #fff;
-            padding: 2px 8px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .free-trial-note {
-            margin-bottom: 10px;
-            color: #0a0;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* Comparison table */
-        .comp-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 16px;
+        .doc-subtitle {
             font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
         }
-
-        .comp-table thead th {
-            background: #111;
-            color: #fff;
-            padding: 10px 12px;
-            text-align: left;
+        .currency-selector {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            font-size: 11px;
             font-weight: 600;
-            border: 1px solid #111;
-        }
-
-        .comp-table thead th:first-child { width: 34%; }
-
-        .comp-table th, .comp-table td {
-            padding: 10px 12px;
-            border: 1px solid #ececec;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .comp-table td:first-child { font-weight: 500; }
-
-        .comp-table .section-row td {
-            background: #f7f7f7;
-            font-weight: 700;
-            font-size: 11px;
+            color: #a1a1aa;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #555;
-            padding: 7px 12px;
+            letter-spacing: 0.05em;
+        }
+        .currency-btn {
+            background: none; border: none; cursor: pointer; padding: 0 4px;
+            font-weight: 850; color: #d1d1d6;
+        }
+        .currency-btn.active { color: #111; }
+
+        hr.header-line {
+            border: none; border-top: 2.5px solid #111;
+            margin-bottom: 48px; margin-top: 16px;
         }
 
-        .yes { color: #111; font-weight: 700; }
-        .no { color: #aaa; }
-
-        /* Add-ons */
-        .addon-box {
-            border: 1px solid #111;
-            padding: 24px;
-            margin-bottom: 40px;
-            background: #fff;
-        }
-
-        .addon-box .addon-label {
-            font-size: 11px;
-            font-weight: 700;
+        /* Section Title */
+        h2.section-title {
+            font-size: 20px;
+            font-weight: 950;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 12px;
-            color: #777;
+            letter-spacing: 0.08em;
+            margin-bottom: 32px;
+            margin-top: 80px;
+            color: #111;
+        }
+        h2.section-title:first-of-type { margin-top: 0; }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            border: 2px solid #111; margin-bottom: 64px;
+        }
+        .plan-col {
+            padding: 48px 24px; border-right: 2px solid #111;
+            display: flex; flex-direction: column;
+            position: relative;
+        }
+        .plan-col:last-child { border-right: none; }
+
+        .badge-most-popular {
+            background: #111; color: #fff; font-size: 9px; font-weight: 900;
+            padding: 5px 12px; text-transform: uppercase; letter-spacing: 0.1em;
+            display: inline-block; margin-bottom: 16px; align-self: flex-start;
         }
 
-        .addon-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
+        .plan-name { font-size: 15px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; color: #111; }
+        .plan-desc { font-size: 12px; color: #4b5563; margin-bottom: 32px; min-height: 48px; line-height: 1.5; }
+
+        .price-box { margin-bottom: 40px; }
+        .price-val { font-size: 26px; font-weight: 900; color: #000; letter-spacing: -0.02em; }
+        .price-meta { font-size: 11px; color: #6b7280; display: block; margin-top: 2px; font-weight: 600; }
+        .price-other { font-size: 10px; color: #9ca3af; text-decoration: line-through; display: block; margin-top: 4px; font-weight: 500; }
+        
+        .save-tag {
+            display: inline-block; border: 1.5px solid #111; padding: 4px 10px;
+            font-size: 10px; font-weight: 900; text-transform: uppercase; border-radius: 4px; margin-top: 12px;
+            color: #111;
+        }
+        .trial-note { font-size: 12.5px; font-weight: 800; color: #16a34a; margin-top: 20px; }
+
+        .features-header {
+            font-size: 10px; font-weight: 900; text-transform: uppercase; color: #9ca3af;
+            margin-top: 48px; margin-bottom: 24px; border-top: 1px solid #f3f4f6; padding-top: 24px;
+            letter-spacing: 0.05em;
         }
 
-        .addon-table tr { border-bottom: 1px solid #eee; }
-        .addon-table tr:last-child { border-bottom: none; }
+        .feature-item { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 12.5px; }
+        .feat-label { display: flex; gap: 10px; font-weight: 750; color: #111; flex: 1; }
+        .feat-label::before { content: '✓'; font-weight: 900; color: #111; }
+        .feat-detail { color: #6b7280; text-align: right; font-size: 11px; font-weight: 500; max-width: 100px; }
 
-        .addon-table td {
-            padding: 12px 0;
+        /* Top-ups */
+        .topup-card { border: 2px solid #111; padding: 40px; margin-bottom: 64px; }
+        .topup-header {
+            font-size: 11px; font-weight: 950; text-transform: uppercase; border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 16px; margin-bottom: 24px; color: #9ca3af; letter-spacing: 0.12em;
         }
+        .topup-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed #e5e7eb; }
+        .topup-row:last-of-type { border-bottom: none; }
+        .topup-label { font-weight: 750; font-size: 13px; color: #111; }
+        .topup-label span { color: #16a34a; font-size: 11px; margin-left: 8px; font-weight: 900; }
+        .topup-cost { font-weight: 900; font-size: 15px; color: #111; }
+        .topup-notes { margin-top: 32px; display: flex; gap: 24px; font-size: 11px; color: #6b7280; font-weight: 500; }
+        .topup-notes span::before { content: '•'; margin-right: 8px; font-weight: 900; }
 
-        .addon-table td:last-child {
-            text-align: right;
-            font-weight: 700;
-        }
-
-        .addon-save {
-            font-size: 11px;
-            color: #0a0;
-            font-weight: 600;
-            margin-left: 8px;
-        }
+        /* Comparison Table */
+        .comp-table { width: 100%; border-collapse: collapse; border: 2px solid #111; margin-bottom: 16px; }
+        .comp-table th { background: #111; color: #fff; padding: 20px 24px; text-align: left; text-transform: uppercase; font-size: 12px; font-weight: 900; letter-spacing: 0.1em; }
+        .comp-table td { padding: 14px 24px; border: 1px solid #f3f4f6; font-size: 12.5px; }
+        .comp-table .cat-row td { background: #fdfdfd; font-weight: 950; font-size: 11px; text-transform: uppercase; color: #9ca3af; letter-spacing: 0.12em; border-top: 1.5px solid #111; padding: 16px 24px; }
+        .comp-table .feat-name { width: 40%; font-weight: 750; color: #111; }
+        .comp-table .feat-val { width: 20%; font-weight: 800; color: #000; }
+        .comp-note { font-size: 11px; color: #9ca3af; margin-top: 12px; font-weight: 500; }
 
         /* Differentiators */
-        .diff-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
+        .diff-list { margin-bottom: 64px; }
+        .diff-item { display: grid; grid-template-columns: 40px 1fr; gap: 0px; margin-bottom: 48px; }
+        .diff-num { font-size: 16px; font-weight: 900; color: #d1d5db; margin-top: 5px; }
+        .diff-content h4 { font-size: 17px; font-weight: 900; margin-bottom: 16px; border-bottom: 2px solid #f3f4f6; padding-bottom: 12px; color: #111; }
+        .diff-row { display: grid; grid-template-columns: 110px 1fr; margin-bottom: 10px; font-size: 13px; line-height: 1.7; }
+        .diff-row b { font-weight: 900; color: #111; }
+        .diff-row span { color: #4b5563; font-weight: 500; }
 
-        .diff-item {
-            display: grid;
-            grid-template-columns: 28px 1fr;
-            gap: 0 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid #e8e8e8;
-        }
+        .footer-note { font-size: 11.5px; color: #4b5563; line-height: 2; border-top: 2px solid #111; padding-top: 40px; margin-top: 100px; font-weight: 500; }
+        .footer-note b { color: #111; font-weight: 900; }
 
-        .diff-item:last-child { border-bottom: none; }
+        .inr-price, .usd-price, .eur-price { display: none; }
+        .active-price { display: inline; }
 
-        .diff-number {
-            font-weight: 700;
-            font-size: 16px;
-            color: #111;
-            line-height: 1.2;
-        }
-
-        .diff-title {
-            font-weight: 700;
-            font-size: 15px;
-            color: #111;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .diff-rows {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .diff-row {
-            display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 0 12px;
-            font-size: 12.5px;
-            line-height: 1.5;
-        }
-
-        .diff-row-label {
-            font-weight: 600;
-            color: #111;
-            white-space: nowrap;
-        }
-
-        .diff-row-value { color: #333; }
-        .diff-row-value em { font-style: normal; font-weight: 600; color: #111; }
-
-        .footnote-block {
-            border-top: 1px solid #ddd;
-            padding-top: 14px;
-            margin-top: 8px;
-        }
-
-        .footnote-block p {
-            font-size: 12px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .footnote-block strong { color: #111; }
-
-        @media (max-width: 720px) {
-            .page { padding: 32px 20px; }
-            .plans { grid-template-columns: 1fr 1fr; }
-            .plan { border-right: none; border-bottom: 1px solid #111; }
-        }
-
-        @media (max-width: 480px) {
-            .plans { grid-template-columns: 1fr; }
+        @media print {
+            body { padding: 0; background: #fff; }
+            .page { box-shadow: none; border: none; margin: 0; padding: 0; max-width: 100%; }
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <!-- Currency Switcher -->
-        <div class="currency-switcher">
-            <div style="padding: 4px 12px; border: 1px solid #ddd; border-radius: 4px; background: #fff;">
-                <label style="font-weight: 600; margin-right: 8px;">Currency:</label>
-                <button id="usd-btn" style="border: none; background: none; font-weight: 600; color: #aaa; cursor: pointer;">USD</button>
-                <span style="color: #aaa; margin: 0 4px;">|</span>
-                <button id="inr-btn" style="border: none; background: none; font-weight: 600; color: #111; cursor: pointer;">INR</button>
-                <span style="color: #aaa; margin: 0 4px;">|</span>
-                <button id="eur-btn" style="border: none; background: none; font-weight: 600; color: #aaa; cursor: pointer;">EUR</button>
+        <!-- Header -->
+        <header class="doc-header">
+            <div class="currency-selector">
+                <span>Currency:</span>
+                <button class="currency-btn active" onclick="setCurrency('USD')">USD</button> |
+                <button class="currency-btn" onclick="setCurrency('INR')">INR</button> |
+                <button class="currency-btn" onclick="setCurrency('EUR')">EUR</button>
+            </div>
+            <h1>Taxary - Pricing & Differentiators</h1>
+            <p class="doc-subtitle">Internal reference document · April 2026</p>
+        </header>
+
+        <hr class="header-line">
+
+        <h2 class="section-title">Pricing Plans</h2>
+        
+        <div class="pricing-grid">
+            <!-- STARTER -->
+            <div class="plan-col">
+                <div class="plan-name">Starter</div>
+                <p class="plan-desc">Essential GST billing & dashboard for solo founders and micro-businesses.</p>
+                <div class="price-box">
+                    <div class="price-val">Free</div>
+                    <span class="price-meta">per workspace, free forever</span>
+                </div>
+
+                <div class="features-header">Core Access (Limited)</div>
+                <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">1 user only</div></div>
+                <div class="feature-item"><div class="feat-label">Sales/month</div><div class="feat-detail">10 Invoices</div></div>
+                <div class="feature-item"><div class="feat-label">Parties</div><div class="feat-detail">Up to 5</div></div>
+                <div class="feature-item"><div class="feat-label">Product Catalog</div><div class="feat-detail">10 items</div></div>
+                <div class="feature-item"><div class="feat-label">Stock View</div><div class="feat-detail">Read-only</div></div>
+                <div class="feature-item"><div class="feat-label">GST Billing</div><div class="feat-detail">Standard only</div></div>
+                <div class="feature-item"><div class="feat-label">Dashboard</div><div class="feat-detail">Basic stats</div></div>
+            </div>
+
+            <!-- GROWTH -->
+            <div class="badge-most-popular" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); z-index: 10;">Most Popular</div>
+            <div class="plan-col" style="border-left: 2px solid #111;">
+                <div class="plan-name">Growth</div>
+                <p class="plan-desc">Professional multi-currency billing and automated ops with active limits.</p>
+                <div class="price-box">
+                    <div class="price-val">
+                        <span class="usd-price active-price">$5 /mo</span>
+                        <span class="inr-price">₹399 /mo</span>
+                        <span class="eur-price">&euro;4.60 /mo</span>
+                    </div>
+                    <span class="price-meta">per workspace, billed annually</span>
+                    <span class="price-other">
+                        <span class="usd-price active-price">$6 billed monthly</span>
+                        <span class="inr-price">₹499 billed monthly</span>
+                        <span class="eur-price">&euro;5.50 billed monthly</span>
+                    </span>
+                    <div class="save-tag">SAVE 20% ANNUALLY</div>
+                </div>
+                <div class="trial-note">Free for 30 days, no card required</div>
+
+                <div class="features-header">Enhanced Features (Capped)</div>
+                <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">Up to 3</div></div>
+                <div class="feature-item"><div class="feat-label">Sales/month</div><div class="feat-detail">Unlimited</div></div>
+                <div class="feature-item"><div class="feat-label">Catalog & Parties</div><div class="feat-detail">Unlimited</div></div>
+                <div class="feature-item"><div class="feat-label">Multi-Currency</div><div class="feat-detail">Active support</div></div>
+                <div class="feature-item"><div class="feat-label">Quote &rarr; Inv</div><div class="feat-detail">1-click sync</div></div>
+                <div class="feature-item"><div class="feat-label">Expense Tracking</div><div class="feat-detail">With receipts</div></div>
+                <div class="feature-item"><div class="feat-label">AI Insights</div><div class="feat-detail">Basic trends</div></div>
+                <div class="feature-item"><div class="feat-label">White-Label PDF</div><div class="feat-detail">No watermark</div></div>
+            </div>
+
+            <!-- SCALE -->
+            <div class="plan-col">
+                <div class="plan-name">Scale</div>
+                <p class="plan-desc">Full autonomous mastery for enterprise scale and multi-branch operations.</p>
+                <div class="price-box">
+                    <div class="price-val">Custom Pricing</div>
+                    <span class="price-meta">Bespoke Enterprise Quote</span>
+                </div>
+
+                <div class="features-header">Full Capabilities (No Limits)</div>
+                <div class="feature-item"><div class="feat-label">Users</div><div class="feat-detail">Unlimited</div></div>
+                <div class="feature-item"><div class="feat-label">Full AI Assist</div><div class="feat-detail">Autonomous</div></div>
+                <div class="feature-item"><div class="feat-label">Stock alerts</div><div class="feat-detail">Advanced</div></div>
+                <div class="feature-item"><div class="feat-label">Purchase Invoicing</div><div class="feat-detail">Unlimited</div></div>
+                <div class="feature-item"><div class="feat-label">Returns mgmt</div><div class="feat-detail">Full cycle</div></div>
+                <div class="feature-item"><div class="feat-label">Coupon Hub</div><div class="feat-detail">Native engine</div></div>
+                <div class="feature-item"><div class="feat-label">RBAC Control</div><div class="feat-detail">Granular</div></div>
+                <div class="feature-item"><div class="feat-label">Staff Management</div><div class="feat-detail">Dedicated</div></div>
+                <div class="feature-item"><div class="feat-label">Priority Support</div><div class="feat-detail">24/7 Support</div></div>
             </div>
         </div>
 
-        <!-- Documentation Header -->
-        <div class="doc-header">
-            <div class="doc-title">Aalee Taxary - Pricing & Differentiators</div>
-            <div class="doc-meta">Internal reference document &nbsp;·&nbsp; April 2026</div>
-        </div>
-
-        <!-- ── PRICING ── -->
-        <h2>Pricing Plans</h2>
-        <div class="plans">
-            <!-- Foundation (Trial/Free) -->
-            <div class="plan" id="plan-spark">
-                <div class="plan-name">Foundation</div>
-                <div class="plan-tagline">Essential GST billing & dashboard for micro-businesses.</div>
-                <div class="plan-price">Free</div>
-                <div class="plan-billing">No credit card required</div>
-                <div class="save-note" style="visibility:hidden;">—</div>
-                <div class="free-trial-note">Get started instantly</div>
-                <hr class="plan-divider" />
-                <div class="plan-features-label">Includes</div>
-                <ul>
-                    <li><strong>1 User</strong> only</li>
-                    <li><strong>10 Sales</strong> /month</li>
-                    <li><strong>5 Parties</strong> (Suppliers + Customers)</li>
-                    <li><strong>10 Products</strong> (catalog limit)</li>
-                    <li>Stock view (read-only)</li>
-                    <li>Standard Dashboard </li>
-                    <li>GST-ready billing</li>
-                    <li>Aalee branded PDF</li>
-                </ul>
+        <h2 class="section-title">Top-up Credits</h2>
+        <div class="topup-card">
+            <div class="topup-header">CORE ADD-ONS · NEVER EXPIRE</div>
+            <div class="topup-row">
+                <div class="topup-label">Additional User Seat</div>
+                <div class="topup-cost"><span class="usd-price active-price">$1.50</span><span class="inr-price">₹149</span><span class="eur-price">&euro;1.40</span></div>
             </div>
-
-            <!-- Accelerator -->
-            <div class="plan plan-popular" id="plan-pulse">
-                <div class="popular-tag" style="background:#8B6914;">BEST FOR GROWTH</div>
-                <div class="plan-name">Accelerator</div>
-                <div class="plan-tagline">Professional multi-currency billing & automated ops.</div>
-                <div class="plan-price">
-                    <span class="inr-price">₹399<span>/mo</span></span>
-                    <span class="usd-price" style="display:none;">$5<span>/mo</span></span>
-                    <span class="eur-price" style="display:none;">&euro;4.60<span>/mo</span></span>
-                </div>
-                <div class="plan-billing">per workspace, billed annually</div>
-                <div class="save-note">Save 30% Annually</div>
-                <div class="free-trial-note">Free for the first month</div>
-                <hr class="plan-divider" />
-                <div class="plan-features-label">Everything in Foundation, plus</div>
-                <ul>
-                    <li><strong>Up to 3 users</strong> access</li>
-                    <li><strong>Unlimited</strong> Parties & Invoices</li>
-                    <li><strong>AI Insights</strong> (Basic)</li>
-                    <li>Quotation → Invoice conversion</li>
-                    <li><strong>Multi-currency</strong> invoicing</li>
-                    <li>Expense tracking & Receipts</li>
-                    <li>Sales payment tracking</li>
-                    <li>White-label (No watermark)</li>
-                    <li>Reports & Trends charts</li>
-                </ul>
+            <div class="topup-row">
+                <div class="topup-label">Extra Enterprise Workspace <span>(Save 10%)</span></div>
+                <div class="topup-cost"><span class="usd-price active-price">$5.00</span><span class="inr-price">₹399</span><span class="eur-price">&euro;4.60</span></div>
             </div>
-
-            <!-- Apex -->
-            <div class="plan" id="plan-apex">
-                <div class="popular-tag">MOST POWERFUL</div>
-                <div class="plan-name">Apex</div>
-                <div class="plan-tagline">Strategic operations suite with full AI mastery.</div>
-                <div class="plan-price">
-                    <span class="inr-price">₹799<span>/mo</span></span>
-                    <span class="usd-price" style="display:none;">$10<span>/mo</span></span>
-                    <span class="eur-price" style="display:none;">&euro;9.20<span>/mo</span></span>
-                </div>
-                <div class="plan-billing">per workspace, billed annually</div>
-                <div class="save-note">Save 25% Annually</div>
-                <div class="free-trial-note">Full Aalee AI Assist included</div>
-                <hr class="plan-divider" />
-                <div class="plan-features-label">Everything in Accelerator, plus</div>
-                <ul>
-                    <li><strong>Up to 10 users</strong> (Roles)</li>
-                    <li><strong>Full Aalee AI Assist</strong></li>
-                    <li><strong>Advanced Stock</strong> mgmt & alerts</li>
-                    <li>Bulk Product/Stock import</li>
-                    <li>Purchase Invoicing (GST)</li>
-                    <li>Sales & Purchase Returns</li>
-                    <li><strong>Coupon Hub</strong> (Marketing)</li>
-                    <li>Credit terms & limits</li>
-                    <li>Role-Based Access Control</li>
-                    <li>Staff management module</li>
-                </ul>
+            <div class="topup-row">
+                <div class="topup-label">1,000 AI Autopilot Tasks <span>(Save 20%)</span></div>
+                <div class="topup-cost"><span class="usd-price active-price">$8.00</span><span class="inr-price">₹649</span><span class="eur-price">&euro;7.40</span></div>
             </div>
-
-            <!-- Citadel -->
-            <div class="plan" id="plan-citadel">
-                <div class="plan-name">Citadel</div>
-                <div class="plan-tagline">Bespoke enterprise scale & multi-branch mastery.</div>
-                <div class="plan-price" style="font-size:18px;padding-top:6px;">Custom</div>
-                <div class="plan-billing">Talk to solutions team</div>
-                <div class="save-note" style="visibility:hidden;">—</div>
-                <hr class="plan-divider" />
-                <div class="plan-features-label">Everything in Apex, plus</div>
-                <ul>
-                    <li><strong>Unlimited</strong> users & workspaces</li>
-                    <li><strong>Custom AI Agents</strong> development</li>
-                    <li>Granular per-module permissions</li>
-                    <li>Dedicated account manager</li>
-                    <li>Priority onboarding & training</li>
-                    <li>Aalee ecosystem integration</li>
-                    <li>Custom SLAs & White-labelling</li>
-                </ul>
+            <div class="topup-notes">
+                <span>Apply instantly to your active workspace</span>
+                <span>No recurring commitment — buy as needed</span>
             </div>
         </div>
 
-        <!-- ── ADD-ONS ── -->
-        <h2 style="margin-top: 40px;">Add-Ons</h2>
-        <div class="addon-box">
-            <div class="addon-label">Available for Accelerator, Apex & Citadel &bull; Billed monthly</div>
-            <table class="addon-table">
-                <tr>
-                    <td>+1 additional user</td>
-                    <td>
-                        <span class="inr-price">₹99/mo</span>
-                        <span class="usd-price" style="display:none;">$1/mo</span>
-                        <span class="eur-price" style="display:none;">&euro;0.99/mo</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>+3 additional users <span class="addon-save">(Save 16%)</span></td>
-                    <td>
-                        <span class="inr-price">₹249/mo</span>
-                        <span class="usd-price" style="display:none;">$2.49/mo</span>
-                        <span class="eur-price" style="display:none;">&euro;2.49/mo</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>+5 additional users <span class="addon-save">(Save 20%)</span></td>
-                    <td>
-                        <span class="inr-price">₹399/mo</span>
-                        <span class="usd-price" style="display:none;">$4/mo</span>
-                        <span class="eur-price" style="display:none;">&euro;3.99/mo</span>
-                    </td>
-                </tr>
-            </table>
-            <div style="margin-top: 20px; font-size: 12px; color: #666; display: flex; gap: 24px;">
-                <div style="display: flex; align-items: center; gap: 6px;">
-                    <span style="color: #111; font-weight: 700;">&bull;</span> Apply instantly to your workspace
-                </div>
-                <div style="display: flex; align-items: center; gap: 6px;">
-                    <span style="color: #111; font-weight: 700;">&bull;</span> No commitment — cancel anytime
-                </div>
-            </div>
-        </div>
-
-        <!-- ── COMPARISON TABLE ── -->
-        <h2>Plan Comparison</h2>
+        <h2 class="section-title">Plan Comparison</h2>
         <table class="comp-table">
             <thead>
                 <tr>
-                    <th>Feature</th>
-                    <th>Foundation
-                        <br><span style="font-weight:400;">Free</span>
-                    </th>
-                    <th>Accelerator
-                        <br>
-                        <span class="inr-price" style="font-weight:400;">₹399/mo<br>(₹499/mo monthly)</span>
-                        <span class="usd-price" style="display:none; font-weight:400;">$5/mo<br>($6/mo monthly)</span>
-                        <span class="eur-price" style="display:none; font-weight:400;">&euro;4.60/mo<br>(&euro;5.50/mo monthly)</span>
-                    </th>
-                    <th>Apex
-                        <br>
-                        <span class="inr-price" style="font-weight:400;">₹799/mo<br>(₹999/mo monthly)</span>
-                        <span class="usd-price" style="display:none; font-weight:400;">$10/mo<br>($12/mo monthly)</span>
-                        <span class="eur-price" style="display:none; font-weight:400;">&euro;9.20/mo<br>(&euro;11/mo monthly)</span>
-                    </th>
-                    <th>Citadel
-                        <br><span style="font-weight:400;">Custom</span>
-                    </th>
+                    <th>Feature Matrix</th>
+                    <th>Starter</th>
+                    <th>Growth</th>
+                    <th>Scale</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Core Limits -->
-                <tr class="section-row"><td colspan="5">Core Limits</td></tr>
-                <tr><td>Users</td><td>1</td><td class="yes">3</td><td class="yes">10</td><td class="yes">Unlimited</td></tr>
-                <!-- Basic Info -->
-                <tr><td>Parties (Suppliers + Customers)</td><td>5</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
-                <tr><td>Sales Invoices / Month</td><td>10</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
-                <tr><td>Product Catalog</td><td>10 items</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
-
-                <!-- Invoicing & Billing -->
-                <tr class="section-row"><td colspan="5">Invoicing & Billing</td></tr>
-                <tr><td>Sales Invoicing (GST-ready)</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Invoice Auto-Numbering</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Multi-Currency Invoicing</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>PDF Invoice Download</td><td>Aalee Branded</td><td class="yes">White-label</td><td class="yes">White-label</td><td class="yes">White-label</td></tr>
-                <tr><td>Invoice Sharing via Email</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Quotation → Invoice (1-click)</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Purchase Invoicing</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- Inventory & Stock -->
-                <tr class="section-row"><td colspan="5">Inventory & Stock</td></tr>
-                <tr><td>Inventory Management</td><td>Read-only</td><td class="no">No</td><td class="yes">Full (with alerts)</td><td class="yes">Full (with alerts)</td></tr>
-                <tr><td>Bulk Import (Products & Stock CSV)</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- Payments & Returns -->
-                <tr class="section-row"><td colspan="5">Payments & Returns</td></tr>
-                <tr><td>Sales Payment Tracking</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Supplier Payment Tracking</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Purchase Returns</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Sales Returns</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- Expense & Promotions -->
-                <tr class="section-row"><td colspan="5">Expense & Promotions</td></tr>
-                <tr><td>Expense Tracking (Categories)</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Receipt / Document Upload</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Coupon Hub</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- Reporting & Dashboard -->
-                <tr class="section-row"><td colspan="5">Reporting & Dashboard</td></tr>
-                <tr><td>Dashboard</td><td>Counts only</td><td class="yes">Charts & trends</td><td class="yes">Full advanced</td><td class="yes">Full advanced</td></tr>
-                <tr><td>Sales Reports</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Stock & Purchase Reports</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- Team & Access -->
-                <tr class="section-row"><td colspan="5">Team & Access</td></tr>
-                <tr><td>Role-Based Access Control</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes (Granular)</td></tr>
-                <tr><td>Staff Management</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Per-Module Permissions</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Credit Terms</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-                <tr><td>Profile / Company Branding</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- AI & Insights -->
-                <tr class="section-row"><td colspan="5">AI & Insights</td></tr>
-                <tr><td>AI Assistant integration</td><td class="no">No</td><td class="yes">Basic Insights</td><td class="yes">Full Assist Integration</td><td class="yes">Custom AI Agents</td></tr>
-                <tr><td>Predictive Stock Alerts</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-
-                <!-- Enterprise -->
-                <tr class="section-row"><td colspan="5">Enterprise</td></tr>
-                <tr><td>Aalee Ecosystem Integration</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
-                <tr><td>Dedicated Support Manager</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+                <tr class="cat-row"><td colspan="4">Core Operations</td></tr>
+                <tr><td class="feat-name">Users</td><td class="feat-val">1 user</td><td class="feat-val">Up to 3</td><td class="feat-val">Unlimited</td></tr>
+                <tr><td class="feat-name">Sales/month</td><td class="feat-val">10</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
+                <tr><td class="feat-name">Parties (suppliers + customers)</td><td class="feat-val">5</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
+                <tr><td class="feat-name">Products (catalog)</td><td class="feat-val">10</td><td class="feat-val">Unlimited</td><td class="feat-val">Unlimited</td></tr>
+                <tr><td class="feat-name">Stock management</td><td class="feat-val">View only</td><td class="feat-val">Yes</td><td class="feat-val">Advanced + alerts</td></tr>
+                <tr><td class="feat-name">GST-ready billing</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Quotation &rarr; Invoice conversion</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Multi-currency invoicing</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Expense tracking & receipts</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Sales payment tracking</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Purchase invoicing (GST)</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Sales & purchase returns</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Bulk product/stock import</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Coupon hub</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Credit terms & limits</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Role-based access control</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">AI insights</td><td class="feat-val">No</td><td class="feat-val">Basic</td><td class="feat-val">Advanced</td></tr>
+                <tr><td class="feat-name">Reports & trend charts</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">White-label (no watermark)</td><td class="feat-val">No</td><td class="feat-val">Yes</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Full Aalee AI Assist</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
+                <tr><td class="feat-name">Staff management module</td><td class="feat-val">No</td><td class="feat-val">No</td><td class="feat-val">Yes</td></tr>
             </tbody>
         </table>
+        <div class="comp-note">* What counts as an AI task? Each recorded prompt, analysis, or automated response processed by the Aalee Intelligence engine.</div>
+        <div class="comp-note">Need enterprise-grade customization? <b>Contact sales.</b></div>
 
-        <div class="footnote-block">
-            <p><strong>What counts as an invoice?</strong> Each Sales or Purchase invoice generated, whether draft, sent, or finalized.</p>
-            <p><strong>All features listed are currently available.</strong> Future capabilities will be added to plans as they launch.</p>
-            <p>Need more? <strong>Contact sales.</strong></p>
-        </div>
-
-        <!-- ── DIFFERENTIATORS ── -->
-        <h2>Unique Differentiators</h2>
-        <div class="diff-grid">
+        <h2 class="section-title">Unique Differentiators vs. Competitors</h2>
+        <div class="diff-list">
             <div class="diff-item">
-                <div class="diff-number">1</div>
+                <div class="diff-num">1</div>
                 <div class="diff-content">
-                    <div class="diff-title">Genuine Free Access — No Time Walls</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">The Foundation plan provides real access to core invoicing with meaningful limits (10 invoices, 5 parties), not a demo or 14-day expiry.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Most competitors (Vyapar, myBillBook, Zoho) either don't have a free plan or offer only a time-limited trial. Foundation is free forever for micro-users.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Users can evaluate the product with real data before committing. Zero acquisition friction.</div></div>
-                    </div>
+                    <h4>Native Coupon Hub for Promotions</h4>
+                    <div class="diff-row"><b>What it is</b><span>Create and manage discount coupons directly within the invoicing workflow.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>No competitor in the Indian SME space (Vyapar/myBillBook) offers a native promotion engine. Zoho requires complex custom plugins.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Retail and digital SMEs can run structured marketing campaigns without external tools.</span></div>
                 </div>
             </div>
             <div class="diff-item">
-                <div class="diff-number">2</div>
+                <div class="diff-num">2</div>
                 <div class="diff-content">
-                    <div class="diff-title">Multi-Currency Invoicing from Day One</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Generate invoices in USD, EUR, GBP, or any supported currency from the Accelerator plan. No enterprise upgrade needed.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Competitors like Vyapar and myBillBook are INR-only. Zoho Books charges ₹749/mo+ for multi-currency. We include it in Accelerator.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Service businesses billing international clients get enterprise-grade invoicing at SME pricing.</div></div>
-                    </div>
+                    <h4>Global-Ready Multi-Currency (Mid-Tier)</h4>
+                    <div class="diff-row"><b>What it is</b><span>Professional multi-currency support (USD, EUR, GBP) included from the Growth plan.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Vyapar is strictly INR-only. Zoho Books walls multi-currency behind its high-end Enterprise plans ($9+). We include it at $5.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Service exporters get enterprise-grade international billing at SME price points.</span></div>
                 </div>
             </div>
             <div class="diff-item">
-                <div class="diff-number">3</div>
+                <div class="diff-num">3</div>
                 <div class="diff-content">
-                    <div class="diff-title">Quotation → Invoice in One Click</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Convert any approved quotation directly into a sales invoice with a single click — all line items, taxes, and customer details pre-filled.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Most tools treat quotations and invoices as separate workflows. Re-entering data wastes time and introduces errors.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Faster deal-to-cash cycle. Zero data re-entry between sales quote and billing.</div></div>
-                    </div>
+                    <h4>Aalee AI Ecosystem Integration</h4>
+                    <div class="diff-row"><b>What it is</b><span>Taxary connects with Aalee Assist (AI Support) for unified business intelligence.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Standalone tools (Zoho/Vyapar) don't connect billing data to automated customer support or cross-product AI agents.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Autonomous business operations where support and finance intelligence share data.</span></div>
                 </div>
             </div>
             <div class="diff-item">
-                <div class="diff-number">4</div>
+                <div class="diff-num">4</div>
                 <div class="diff-content">
-                    <div class="diff-title">Built-in Coupon Hub for Promotions</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Create, manage, and apply discount coupons directly within the invoicing workflow. Percentage or flat discounts with usage tracking.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">No competitor in the Indian SME billing space offers a native coupon/promotion engine. Businesses currently manage discounts manually.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Retail and e-commerce businesses can run structured promotions without external tools.</div></div>
-                    </div>
+                    <h4>Genuine Free Access — No Time Walls</h4>
+                    <div class="diff-row"><b>What it is</b><span>Real access to core invoicing with meaningful limits (10 invoices).</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Vyapar has no free plan (timed trial only). Taxary Starter is free forever for micro-users with digital-first features.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Zero acquisition friction. Evaluate the product with real data for as long as needed.</span></div>
                 </div>
             </div>
             <div class="diff-item">
-                <div class="diff-number">5</div>
+                <div class="diff-num">5</div>
                 <div class="diff-content">
-                    <div class="diff-title">Integrated Expense Tracking with Receipt Upload</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Track expenses by category, attach receipt images/documents, and maintain a complete expense ledger alongside invoicing.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">myBillBook and Vyapar focus on sales. Expense tracking with document upload is typically a Zoho Books-level feature.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Complete financial picture — income and expenses in one place. Reduces need for separate expense apps.</div></div>
-                    </div>
+                    <h4>Role-Based Access at SME Pricing</h4>
+                    <div class="diff-row"><b>What it is</b><span>Granular per-module permission controls for staff members.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Vyapar offers very basic user control. Zoho walls granular permissions behind enterprise tiers. Taxary simplifies this for Scale teams ($10).</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Business owners can safely delegate finance and stock ops without sensitive exposure.</span></div>
                 </div>
             </div>
             <div class="diff-item">
-                <div class="diff-number">6</div>
+                <div class="diff-num">6</div>
                 <div class="diff-content">
-                    <div class="diff-title">Purchase & Sales Returns Management</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Dedicated workflows for both purchase returns (to suppliers) and sales returns (from customers) with automatic stock and payment adjustments.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Most SME tools handle returns as manual credit notes. Taxary provides structured return flows with inventory sync.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Accurate stock levels and financial records after returns. No manual reconciliation needed.</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="diff-item">
-                <div class="diff-number">7</div>
-                <div class="diff-content">
-                    <div class="diff-title">Role-Based Access & Staff Management</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Assign per-module permissions to team members. Control who can access invoicing, stock, expenses, reports, and settings independently.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Competitors offer basic user management. Taxary provides granular, per-module permission controls at the Apex tier — not enterprise-only.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Business owners can delegate operations safely without exposing sensitive financial data to all staff.</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="diff-item">
-                <div class="diff-number">8</div>
-                <div class="diff-content">
-                    <div class="diff-title">White-Label PDF Templates</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Generate professional invoices and quotations with your company branding — logo, colors, and details. No "Powered by" watermark on paid plans.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Many tools include their own branding on free/basic PDFs. Taxary removes all platform branding from the Pulse tier onwards.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Professional-looking documents that build client trust from day one of upgrading.</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="diff-item">
-                <div class="diff-number">9</div>
-                <div class="diff-content">
-                    <div class="diff-title">Full GST-Ready Compliance</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">All invoices support GSTIN, HSN/SAC codes, CGST/SGST/IGST breakdowns, and state-wise tax calculation out of the box.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Built for Indian tax law from the ground up — not a Western tool retrofitted for GST.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">Businesses stay compliant without manual tax calculation. Ready for GST filing preparation.</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="diff-item">
-                <div class="diff-number">10</div>
-                <div class="diff-content">
-                    <div class="diff-title">Aalee Ecosystem — Unified Business Platform</div>
-                    <div class="diff-rows">
-                        <div class="diff-row"><div class="diff-row-label">What it is</div><div class="diff-row-value">Taxary integrates with other Aalee products (Assist for AI customer support) to create a unified business operations platform.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Why unique</div><div class="diff-row-value">Standalone billing tools don't connect to customer support, CRM, or AI. Aalee provides a growing ecosystem of integrated products.</div></div>
-                        <div class="diff-row"><div class="diff-row-label">Impact</div><div class="diff-row-value">As the ecosystem grows, Citadel customers get seamless cross-product workflows without third-party integrations.</div></div>
-                    </div>
+                    <h4>Quotation &rarr; Invoice Integrated Lifecycle</h4>
+                    <div class="diff-row"><b>What it is</b><span>Instant 1-click conversion with tax, line item, and party data synchronization.</span></div>
+                    <div class="diff-row"><b>Why unique</b><span>Most SME tools treat quotations as side-documents. Taxary ensures they are part of a unified, high-speed conversion funnel.</span></div>
+                    <div class="diff-row"><b>Impact</b><span>Dramatic reduction in deal-to-cash friction for sales-led organizations.</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- ── COMPETITOR ANALYSIS ── -->
-        <h2>Competitor Benchmarking (2026)</h2>
-        <div style="margin-bottom: 32px;">
-            <p style="font-size: 13px; color: #555; margin-bottom: 20px;">Taxary is positioned to be a premium yet accessible choice for growing SMEs, offering Zoho-level features (Multi-currency, Access Management) at myBillBook/Vyapar price points.</p>
-            <table class="comp-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Core Monthly Price</th>
-                        <th>Target Audience</th>
-                        <th>Taxary Edge</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Vyapar</strong></td>
-                        <td>
-                            <span class="inr-price">₹283 - ₹500+</span>
-                            <span class="usd-price" style="display:none;">$3.40 - $6+</span>
-                            <span class="eur-price" style="display:none;">&euro;3.10 - &euro;5.50+</span>
-                        </td>
-                        <td>Offline shopkeepers & traders</td>
-                        <td>Native multi-currency & role-based access.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>myBillBook</strong></td>
-                        <td>
-                            <span class="inr-price">₹217 - ₹417</span>
-                            <span class="usd-price" style="display:none;">$2.60 - $5+</span>
-                            <span class="eur-price" style="display:none;">&euro;2.40 - &euro;4.60+</span>
-                        </td>
-                        <td>Retailers & Distributors</td>
-                        <td>Built-in Coupon Hub & Expense Receipt upload.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Zoho Books</strong></td>
-                        <td>
-                            <span class="inr-price">₹749 - ₹2,999+</span>
-                            <span class="usd-price" style="display:none;">$9 - $36+</span>
-                            <span class="eur-price" style="display:none;">&euro;8.30 - &euro;33+</span>
-                        </td>
-                        <td>Service businesses & Corps</td>
-                        <td>60% more affordable for comparable features.</td>
-                    </tr>
-                    <tr style="background: #fdfae6;">
-                        <td><strong>Taxary</strong></td>
-                        <td>
-                            <strong>
-                                <span class="inr-price">₹399 - ₹799</span>
-                                <span class="usd-price" style="display:none;">$5 - $10</span>
-                                <span class="eur-price" style="display:none;">&euro;4.60 - &euro;9.20</span>
-                            </strong>
-                        </td>
-                        <td><strong>Modern Digital SMEs</strong></td>
-                        <td><strong>Foundation Edition + AI Ecosystem Advantage.</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="addon-box" style="background: #f9f9f9; border-left: 4px solid #111;">
-            <div class="addon-label">Profitability & Margin Summary</div>
-            <p style="font-size: 13px; color: #333; line-height: 1.6;">
-                Our <strong>Apex (₹799)</strong> plan provides <strong>85%+ gross margin</strong> assuming standard AWS/GCP multi-tenant hosting costs. 
-                The <strong>Foundation (Free)</strong> plan serves as a zero-CAC acquisition tool, while <strong>Accelerator (₹399)</strong> covers all variable 
-                operating costs for small businesses, ensuring self-sustained growth without burning capital.
-            </p>
-        </div>
-
-        <!-- Footer -->
         <div class="footer-note">
-            <p><strong>All features listed are currently available in the Aalee Taxary platform.</strong> Future capabilities will be added to plans as they launch.</p>
-            <p>Prices shown are per workspace. GST applicable as per Indian tax law.</p>
-            <p>For questions or custom requirements, <strong>contact sales.</strong></p>
-            <p><strong>Internal Use Only:</strong> This document is intended for Aalee Sales & Strategy teams. Pricing is subject to change based on infrastructure overheads.
-            <br>&copy; 2026 Aalee AI Technologies. All rights reserved.</p>
+            <b>Internal Purpose Document:</b> This document is intended for internal reference only. All pricing and feature availability is subject to final production deployment.<br>
+            <b>Development Note:</b> Some features identified (marked as "AI-powered" or in "Advanced") are currently in active development across the Aalee ecosystem.
         </div>
     </div>
 
-<script>
-    // Currency Switcher Logic
-    const usdBtn = document.getElementById('usd-btn');
-    const inrBtn = document.getElementById('inr-btn');
-    const eurBtn = document.getElementById('eur-btn');
-
-    function setCurrency(currency) {
-        const usdEls = document.querySelectorAll('.usd-price');
-        const inrEls = document.querySelectorAll('.inr-price');
-        const eurEls = document.querySelectorAll('.eur-price');
-
-        if (currency === 'INR') {
-            usdBtn.style.color = '#aaa';
-            inrBtn.style.color = '#111';
-            eurBtn.style.color = '#aaa';
-            usdEls.forEach(el => el.style.display = 'none');
-            inrEls.forEach(el => el.style.display = '');
-            eurEls.forEach(el => el.style.display = 'none');
-        } else if (currency === 'EUR') {
-            usdBtn.style.color = '#aaa';
-            inrBtn.style.color = '#aaa';
-            eurBtn.style.color = '#111';
-            usdEls.forEach(el => el.style.display = 'none');
-            inrEls.forEach(el => el.style.display = 'none');
-            eurEls.forEach(el => el.style.display = '');
-        } else {
-            usdBtn.style.color = '#111';
-            inrBtn.style.color = '#aaa';
-            eurBtn.style.color = '#aaa';
-            usdEls.forEach(el => el.style.display = '');
-            inrEls.forEach(el => el.style.display = 'none');
-            eurEls.forEach(el => el.style.display = 'none');
+    <script>
+        function setCurrency(cur) {
+            document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.remove('active'); // fallback
+            document.querySelectorAll('.currency-btn').forEach(b => { if(b.innerText === cur) b.classList.add('active'); });
+            document.querySelectorAll('.inr-price, .usd-price, .eur-price').forEach(el => el.classList.remove('active-price'));
+            document.querySelectorAll('.' + cur.toLowerCase() + '-price').forEach(el => el.classList.add('active-price'));
         }
-    }
-
-    usdBtn.addEventListener('click', () => setCurrency('USD'));
-    inrBtn.addEventListener('click', () => setCurrency('INR'));
-    eurBtn.addEventListener('click', () => setCurrency('EUR'));
-
-    // Default to INR
-    setCurrency('INR');
-</script>
+    </script>
 </body>
 </html>
